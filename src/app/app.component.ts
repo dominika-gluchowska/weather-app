@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'weather-app';
+
+  metricName = 'Rainfall';
+  selectedRegion = { name: 'England'};
+
+  regions = [
+    { name: 'UK'},
+    { name: 'England'},
+    { name: 'Scotland'},
+    { name: 'Wales'}
+  ];
 }
