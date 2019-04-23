@@ -126,7 +126,7 @@ export class ChartComponent implements OnInit {
 
   /* utils */
   dateFormatter = (element: Metric): string => {
-    return formatDate(new Date(element.year, element.month), 'MMM y', 'en-GB');
+    return formatDate(element.date, 'MMM y', 'en-GB');
   }
 
   filterChartDataByRange(start: Moment, to: Moment) {
@@ -142,8 +142,8 @@ export class ChartComponent implements OnInit {
         this.minDate = this.chartData[0].date;
         this.maxDate = this.chartData[this.chartData.length - 1].date;
 
-        const from = moment((this.chartData.length - 13 > 0) ?
-            this.chartData[this.chartData.length - 13].date : this.chartData[0].date);
+        const from = moment((this.chartData.length - 12 > 0) ?
+            this.chartData[this.chartData.length - 12].date : this.chartData[0].date);
         const to = moment(this.chartData[this.chartData.length - 1].date);
         this.dateFrom = new FormControl(from);
         this.dateTo = new FormControl(to);

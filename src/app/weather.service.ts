@@ -23,7 +23,7 @@ export class WeatherService {
               value: singleMetric.value,
               year: singleMetric.year,
               month: singleMetric.month,
-              date: new Date(singleMetric.year, singleMetric.month)
+              date: new Date(singleMetric.year, (singleMetric.month - 1))
             };
       })),
       catchError( error => {
