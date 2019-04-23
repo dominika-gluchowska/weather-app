@@ -1,4 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MaterialModule } from '../material.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ChartComponent } from './chart.component';
 
@@ -8,7 +12,13 @@ describe('ChartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChartComponent ]
+      declarations: [ ChartComponent ],
+      imports: [
+        ReactiveFormsModule,
+        MaterialModule,
+        HttpClientModule,
+        BrowserAnimationsModule
+      ]
     })
     .compileComponents();
   }));
