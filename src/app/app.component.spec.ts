@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
@@ -22,7 +22,6 @@ describe('AppComponent', () => {
         HttpClientModule,
         MaterialModule
       ],
-      providers: [HttpClient],
     }).compileComponents();
   }));
 

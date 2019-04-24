@@ -1,0 +1,49 @@
+
+
+<!--<app-data-filters [(dateFrom)]="dateFrom" 
+                  [(dateTo)]="dateTo"
+                  [minDate]="minDate"
+                  [maxDate]="maxDate">
+</app-data-filters>-->
+
+
+<mat-form-field>
+    <input matInput 
+      [matDatepicker]="picker" 
+      (dateChange)="onDateFromChange($event)"
+      placeholder="Choose a date from"
+      [min]="minDate" 
+      [max]="maxDate"
+      [formControl]="dateFrom">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker 
+                    startView="multi-year"
+                    (yearSelected)="startChosenYearHandler($event)"
+                    (monthSelected)="startChosenMonthHandler($event, picker)"
+                    >
+                  </mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+      <input matInput 
+      [matDatepicker]="picker2" 
+      (dateChange)="onDateToChange($event)"
+      placeholder="Choose a date to"
+      [min]="minDate" 
+      [max]="maxDate"
+      [formControl]="dateTo">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2
+                    startView="multi-year"
+                    (yearSelected)="toChosenYearHandler($event)"
+                    (monthSelected)="toChosenMonthHandler($event, picker2)"
+      ></mat-datepicker>
+    </mat-form-field>
+
+    <div *ngIf="!dataRangeValid" 
+      class="validation-message">Invalid data range
+    </div>
+
+  <div *ngIf="!chartData.length">Loading...</div> 
+
+  <app-chart [label]="metricName" [selectedDataRange]="selectedDataRange"></app-chart>
